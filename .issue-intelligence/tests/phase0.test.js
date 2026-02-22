@@ -429,7 +429,7 @@ describe("Requires-heart help documentation", () => {
 
   it("requires-heart help explains how to enable the gate", () => {
     const doc = readFile(".issue-intelligence/help/requires-heart.md");
-    assert.ok(doc.includes("requires-heart"), "Should mention requires-heart files");
+    assert.ok(doc.includes("requires-heart"), "Should mention the requires-heart feature");
     assert.ok(doc.includes("❤️"), "Should mention the heart emoji");
   });
 
