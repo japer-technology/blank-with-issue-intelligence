@@ -244,6 +244,12 @@ In `.github/workflows/ISSUE-INTELLIGENCE-WORKFLOW-AGENT.yml`, add the secret as 
 
 If you switch providers, update this block to reference the new secret name.
 
+## Require Heart Approval on New Issues
+
+You can gate newly opened issues behind a ❤️ reaction by creating a `requires-heart.*` file in the `.issue-intelligence/` directory. When active, the agent only processes new issues that have received a heart reaction.
+
+See [❤️ Requires-Heart Gate](requires-heart.md) for full details.
+
 ## After Making Changes
 
 Commit and push your configuration changes:

@@ -155,6 +155,14 @@ Only users with **admin**, **maintain**, or **write** permission on the reposito
 
 Random users on public repositories cannot trigger the agent by opening issues or posting comments.
 
+## Requires-Heart Gate
+
+You can optionally require a ❤️ (heart) reaction on newly opened issues before the agent processes them. This adds a manual approval step — useful for public repositories where you want to control which issues get agent attention.
+
+When active, newly opened issues without a ❤️ reaction are skipped. Follow-up comments on approved issues are always processed.
+
+See [❤️ Requires-Heart Gate](requires-heart.md) for setup instructions and details.
+
 ## Comment Size Limits
 
 GitHub enforces a ~65,535 character limit on issue comments. The agent caps its replies at 60,000 characters to stay within this limit. If a response is truncated, check the workflow logs for the full output.

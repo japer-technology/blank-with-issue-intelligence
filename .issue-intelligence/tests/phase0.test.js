@@ -417,3 +417,51 @@ describe("Error handling", () => {
     );
   });
 });
+
+// ── Requires-heart help documentation ─────────────────────────────────────
+
+describe("Requires-heart help documentation", () => {
+  it("dedicated requires-heart help file exists", () => {
+    assert.ok(
+      fs.existsSync(path.join(ISSUE_INTELLIGENCE, "help", "requires-heart.md"))
+    );
+  });
+
+  it("requires-heart help explains how to enable the gate", () => {
+    const doc = readFile(".issue-intelligence/help/requires-heart.md");
+    assert.ok(doc.includes("requires-heart"), "Should mention requires-heart files");
+    assert.ok(doc.includes("❤️"), "Should mention the heart emoji");
+  });
+
+  it("requires-heart help explains it only applies to new issues", () => {
+    const doc = readFile(".issue-intelligence/help/requires-heart.md");
+    assert.ok(
+      doc.includes("newly opened issues"),
+      "Should explain the gate only applies to newly opened issues"
+    );
+  });
+
+  it("help README links to requires-heart documentation", () => {
+    const readme = readFile(".issue-intelligence/help/README.md");
+    assert.ok(
+      readme.includes("requires-heart.md"),
+      "Help README should link to requires-heart.md"
+    );
+  });
+
+  it("issues-management help references requires-heart", () => {
+    const issuesMgmt = readFile(".issue-intelligence/help/issues-management.md");
+    assert.ok(
+      issuesMgmt.includes("requires-heart"),
+      "Issues management help should reference the requires-heart feature"
+    );
+  });
+
+  it("configure help references requires-heart", () => {
+    const configure = readFile(".issue-intelligence/help/configure.md");
+    assert.ok(
+      configure.includes("requires-heart"),
+      "Configure help should reference the requires-heart feature"
+    );
+  });
+});

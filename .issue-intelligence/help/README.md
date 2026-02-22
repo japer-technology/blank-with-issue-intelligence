@@ -23,6 +23,7 @@ Welcome to the Issue Intelligence help center. Everything you need to install, c
 | [▶️ Enable](enable.md) | Re-activate a disabled agent |
 | [⚙️ Configure](configure.md) | Change the LLM provider, model, personality, thinking level, and more |
 | [🚀 Action Management](action-management.md) | Manage the GitHub Actions workflow that powers Issue Intelligence |
+| [❤️ Requires-Heart Gate](requires-heart.md) | Require a ❤️ reaction on new issues before the agent processes them |
 | [💬 Issues Management](issues-management.md) | Use GitHub Issues as your AI conversation interface |
 
 ---
