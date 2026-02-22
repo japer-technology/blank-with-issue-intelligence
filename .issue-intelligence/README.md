@@ -1,4 +1,4 @@
-# .issue-intelligence 🦞 An AI Agent As A Drop In
+# .issue-intelligence
 
 <p align="center">
   <picture>
