@@ -335,9 +335,9 @@ describe("Install templates", () => {
 describe("Requires-heart gate", () => {
   const guard = readFile(".issue-intelligence/lifecycle/ISSUE-INTELLIGENCE-ENABLED.ts");
 
-  it("guard script checks for requires-heart.* files", () => {
-    assert.ok(guard.includes("requires-heart"));
-    assert.ok(guard.includes("readdirSync"));
+  it("guard script checks for ISSUE-INTELLIGENCE-HEART-REQUIRED.md file", () => {
+    assert.ok(guard.includes("ISSUE-INTELLIGENCE-HEART-REQUIRED.md"));
+    assert.ok(guard.includes("existsSync"));
   });
 
   it("guard only applies heart check on issues event (not comments)", () => {

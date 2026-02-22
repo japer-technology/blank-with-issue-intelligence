@@ -45,7 +45,7 @@
  * third-party dependencies so it can run before `bun install`.
  */
 
-import { existsSync, readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { resolve } from "path";
 
 // ─── Resolve the absolute path to the sentinel file ───────────────────────────
@@ -69,20 +69,18 @@ if (!existsSync(enabledFile)) {
 console.log("Issue Intelligence enabled — ISSUE-INTELLIGENCE-ENABLED.md found.");
 
 // ─── Requires-heart gate ──────────────────────────────────────────────────────
-// If any file matching `requires-heart.*` exists in the `.issue-intelligence/`
-// directory, newly opened issues must have a ❤️ (heart) reaction to be processed.
-// This allows repository owners to opt-in to a gating mechanism that requires
-// explicit approval (via heart reaction) before the agent processes an issue.
+// If the file `ISSUE-INTELLIGENCE-HEART-REQUIRED.md` exists in the
+// `.issue-intelligence/` directory, newly opened issues must have a ❤️ (heart)
+// reaction to be processed.  This allows repository owners to opt-in to a gating
+// mechanism that requires explicit approval (via heart reaction) before the agent
+// processes an issue.
 //
 // The check only applies to `issues` events (newly opened issues); follow-up
 // comments (`issue_comment`) are always processed so that approved conversations
 // can continue uninterrupted.
-const issueIntelligenceDir = resolve(import.meta.dir, "..");
-const requiresHeartFiles = readdirSync(issueIntelligenceDir).filter(
-  (f: string) => /^requires-heart\..+$/.test(f)
-);
+const heartRequiredFile = resolve(import.meta.dir, "..", "ISSUE-INTELLIGENCE-HEART-REQUIRED.md");
 
-if (requiresHeartFiles.length > 0 && process.env.GITHUB_EVENT_NAME === "issues") {
+if (existsSync(heartRequiredFile) && process.env.GITHUB_EVENT_NAME === "issues") {
   const eventPath = process.env.GITHUB_EVENT_PATH;
   if (eventPath) {
     const event = JSON.parse(readFileSync(eventPath, "utf-8"));
@@ -112,7 +110,7 @@ if (requiresHeartFiles.length > 0 && process.env.GITHUB_EVENT_NAME === "issues")
     if (parseInt(output.trim(), 10) === 0) {
       console.error(
         `Issue #${issueNumber} skipped — requires-heart gate is active ` +
-        `(found ${requiresHeartFiles.join(", ")}) but no ❤️ reaction on the issue.\n` +
+        `(ISSUE-INTELLIGENCE-HEART-REQUIRED.md present) but no ❤️ reaction on the issue.\n` +
         "Add a heart reaction to the issue and re-open or re-trigger the workflow."
       );
       process.exit(1);

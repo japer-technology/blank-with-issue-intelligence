@@ -23,7 +23,7 @@ When the requires-heart gate is **active**:
 
 ```
 New issue opened
-    → Guard checks for requires-heart.* file
+    → Guard checks for ISSUE-INTELLIGENCE-HEART-REQUIRED.md file
     → File found → checks issue for ❤️ reaction
     → No ❤️ → workflow exits (issue is skipped)
     → ❤️ found → agent processes the issue
@@ -33,23 +33,23 @@ New issue opened
 
 ## Enable the Requires-Heart Gate
 
-Create any file matching the pattern `requires-heart.*` in the `.issue-intelligence/` directory:
+Create the file `ISSUE-INTELLIGENCE-HEART-REQUIRED.md` in the `.issue-intelligence/` directory:
 
 ```bash
-touch .issue-intelligence/requires-heart.md
-git add .issue-intelligence/requires-heart.md
+touch .issue-intelligence/ISSUE-INTELLIGENCE-HEART-REQUIRED.md
+git add .issue-intelligence/ISSUE-INTELLIGENCE-HEART-REQUIRED.md
 git commit -m "Enable requires-heart gate"
 git push
 ```
 
-The file can have any extension (`.md`, `.txt`, `.json`, etc.) and its contents don't matter — only its presence is checked.
+The file's contents don't matter — only its presence is checked.
 
 ## Disable the Requires-Heart Gate
 
-Remove all `requires-heart.*` files from the `.issue-intelligence/` directory:
+Remove the `ISSUE-INTELLIGENCE-HEART-REQUIRED.md` file from the `.issue-intelligence/` directory:
 
 ```bash
-rm .issue-intelligence/requires-heart.*
+rm .issue-intelligence/ISSUE-INTELLIGENCE-HEART-REQUIRED.md
 git add -A
 git commit -m "Disable requires-heart gate"
 git push
