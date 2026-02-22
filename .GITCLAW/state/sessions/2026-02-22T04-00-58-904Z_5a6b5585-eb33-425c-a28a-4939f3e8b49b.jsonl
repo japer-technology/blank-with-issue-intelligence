@@ -1,0 +1,5 @@
+{"type":"session","version":3,"id":"5a6b5585-eb33-425c-a28a-4939f3e8b49b","timestamp":"2026-02-22T04:00:58.904Z","cwd":"/home/runner/work/template-issue-intelligence/template-issue-intelligence"}
+{"type":"model_change","id":"20e2bb12","parentId":null,"timestamp":"2026-02-22T04:00:58.932Z","provider":"anthropic","modelId":"claude-opus-4-6"}
+{"type":"thinking_level_change","id":"194d9de8","parentId":"20e2bb12","timestamp":"2026-02-22T04:00:58.932Z","thinkingLevel":"medium"}
+{"type":"message","id":"3e5bb52a","parentId":"194d9de8","timestamp":"2026-02-22T04:00:59.190Z","message":{"role":"user","content":[{"type":"text","text":"Hello?\n\n"}],"timestamp":1771732859146}}
+{"type":"message","id":"33e1fe90","parentId":"3e5bb52a","timestamp":"2026-02-22T04:01:01.245Z","message":{"role":"assistant","content":[{"type":"text","text":"\n\nHello! How can I help you today? 😊"}],"api":"anthropic-messages","provider":"anthropic","model":"claude-opus-4-6","usage":{"input":1702,"output":16,"cacheRead":0,"cacheWrite":0,"totalTokens":1718,"cost":{"input":0.00851,"output":0.0004,"cacheRead":0,"cacheWrite":0,"total":0.00891}},"stopReason":"stop","timestamp":1771732859148}}
