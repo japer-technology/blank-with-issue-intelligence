@@ -101,7 +101,15 @@ if (requiresHeartFiles.length > 0 && process.env.GITHUB_EVENT_NAME === "issues")
     const output = await new Response(proc.stdout).text();
     const exitCode = await proc.exited;
 
-    if (exitCode === 0 && parseInt(output.trim(), 10) === 0) {
+    if (exitCode !== 0) {
+      console.error(
+        "Requires-heart gate — failed to query reactions via gh API (exit code " +
+        `${exitCode}). Failing closed to prevent unreviewed issue processing.`
+      );
+      process.exit(1);
+    }
+
+    if (parseInt(output.trim(), 10) === 0) {
       console.error(
         `Issue #${issueNumber} skipped — requires-heart gate is active ` +
         `(found ${requiresHeartFiles.join(", ")}) but no ❤️ reaction on the issue.\n` +
